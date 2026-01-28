@@ -29,13 +29,13 @@ def print_banner():
 def start(m):
     markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
     markup.add("🚀 Attack", "👤 My Info", "🎟️ Redeem Key")
-    bot.reply_to(m, "⚡ *PRIMEXARMY OFFICIAL* ⚡\nChoose an option:", reply_markup=markup, parse_mode='Markdown')
+    bot.reply_to(m, "⚡ *CONTACT - @PAID_SELLERz* ⚡\nChoose an option:", reply_markup=markup, parse_mode='Markdown')
 
 @bot.message_handler(func=lambda m: m.text == "🚀 Attack")
 def attack_req(m):
     users = json.load(open(USER_FILE))
     if str(m.chat.id) != ADMIN_ID and str(m.chat.id) not in users:
-        bot.reply_to(m, "❌ Access Denied! Contact @PK_CHOPRA")
+        bot.reply_to(m, "❌ Access Denied! Contact @PAID_SELLERz")
         return
     msg = bot.reply_to(m, "🎯 *Enter IP Port Time* (e.g., `1.1.1.1 8080 60`)")
     bot.register_next_step_handler(msg, run_atk)
@@ -50,7 +50,7 @@ def run_atk(m):
 @bot.message_handler(commands=['genkey'])
 def gen(m):
     if str(m.chat.id) != ADMIN_ID: return
-    key = "PRIME-" + ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
+    key = "KATIL-" + ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
     k = json.load(open(KEY_FILE)); k[key] = 24; json.dump(k, open(KEY_FILE, "w"))
     bot.reply_to(m, f"🔑 Key: `{key}` (24h)", parse_mode='Markdown')
 
